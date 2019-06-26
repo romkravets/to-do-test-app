@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import { HTTPService } from '../../http-service/http-service';
+import { ListItem } from './ListItem';
 
 import './TaskList.scss';
 
@@ -11,6 +13,7 @@ export class TaskList extends React.Component {
       this.httpService = new HTTPService();
       this.state = {
          tasks: [],
+         newTaskTitle: '',
       }
    }
 
@@ -32,11 +35,12 @@ export class TaskList extends React.Component {
    onSubmit = (e) => {
       e.preventDefault();
       console.log(e);
-      const title = e.target.querySelector('input').value;
+      const title = this.state.newTaskTitle;
 
       this.httpService.post(URL, {title}, (task) => {
          this.setState((oldState) => {
             const newState = Object.assign({}, oldState);
+            newState.newTaskTitle = '';
             newState.tasks.push(task);
             console.log(newState);
             return newState;
@@ -44,9 +48,35 @@ export class TaskList extends React.Component {
       })
    }
 
+   valueChange = (e) => {
+      const value = e.target.value;
+      this.setState((oldState) => {
+         const newState = Object.assign({}, oldState);
+         newState.newTaskTitle = value;
+         console.log(newState);
+         return newState;
+      })
+   }
+
+   deleteItem = (id) => {
+      this.httpService.delete(`${URL}/${id}`, (resp) => {
+         this.setState((oldState) => {
+            const newState = Object.assign({}, oldState);
+            newState.tasks = newState.tasks.filter((item) => item.id !== id);
+            return newState;
+         })
+      })
+   }
+
    render() {
       const listItems = this.state.tasks.map((task, i) => {
-         return <li key={i}>{task.title}</li>
+         return <ListItem 
+         key={i} 
+         id={task.id} 
+         title={task.title} 
+         completed={task.completed}
+         onDeleteItem={this.deleteItem}
+         />
       })
       return (
          <div className="task-list">
@@ -55,6 +85,8 @@ export class TaskList extends React.Component {
             type="text"
             className="task-list__input"
             placeholder="To do"
+            onChange={this.valueChange}
+            value={this.state.newTaskTitle}
             />
             <button className="task-list__btn">Add</button>
          </form>
