@@ -1,12 +1,34 @@
 import * as React from 'react';
-
+import { HTTPService } from '../../http-service/http-service';
 
 import './TaskList';
+
+const URL = 'https://evening-dawn-11092.herokuapp.com/list';
 
 export class TaskList extends React.Component {
    constructor() {
       super();
+      this.httpService = new HTTPService();
+      this.state = {
+         tasks: [],
+      }
    }
+
+   componentDidMount() {
+      this.fetchData();
+   }
+
+   fetchData() {
+      this.httpService.get(URL, (tasks) => {
+         this.setState((oldState) => {
+            const newState = Object.assign({}, oldState);
+            newState.tasks = tasks;
+            console.log(newState);
+            return newState;
+         })
+      })
+   }
+
    render() {
       return (
          <div className="task-list">
