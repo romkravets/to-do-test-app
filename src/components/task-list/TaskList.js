@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HTTPService } from '../../http-service/http-service';
 
-import './TaskList';
+import './TaskList.scss';
 
 const URL = 'https://evening-dawn-11092.herokuapp.com/list';
 
@@ -29,10 +29,28 @@ export class TaskList extends React.Component {
       })
    }
 
+   onSubmit = (e) => {
+      e.preventDefault();
+      console.log(e);
+      const title = e.target.querySelector('input').value;
+
+      this.httpService.post(URL, {title}, (task) => {
+         this.setState((oldState) => {
+            const newState = Object.assign({}, oldState);
+            newState.tasks.push(task);
+            console.log(newState);
+            return newState;
+         })
+      })
+   }
+
    render() {
+      const listItems = this.state.tasks.map((task, i) => {
+         return <li key={i}>{task.title}</li>
+      })
       return (
          <div className="task-list">
-            <form className="task-list__head">
+            <form className="task-list__head" onSubmit={this.onSubmit}>
             <input
             type="text"
             className="task-list__input"
@@ -42,8 +60,8 @@ export class TaskList extends React.Component {
          </form>
          <div className="list">
             <ul className="task-list__content">
-            <li>
-                  <span className="list-item__checkbox">
+               {listItems}
+                  {/* <span className="list-item__checkbox">
                   <input className="list-item__native-input"
                         type="checkbox"
                         id=""/>
@@ -53,8 +71,7 @@ export class TaskList extends React.Component {
                   </span>
                   <input className="list-item__input"
                   value=''/>
-                  <button className="list-item__del">X</button>
-            </li>
+                  <button className="list-item__del">X</button> */}
             </ul>
          </div>
          <div className="footer">
