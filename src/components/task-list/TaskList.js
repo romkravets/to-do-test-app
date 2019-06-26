@@ -52,7 +52,7 @@ export class TaskList extends React.Component {
          })
       })
    }
-  
+
     valueChange = (e) => {
       const value = e.target.value;
       this.setState((oldState) => {
@@ -108,7 +108,7 @@ export class TaskList extends React.Component {
                <input
                type="text"
                className="task-list__input"
-               placeholder="To do"
+               placeholder="New Todo"
                onChange={this.valueChange}
                value={this.state.newTaskTitle}/>
                <button className="task-list__btn">Add</button>

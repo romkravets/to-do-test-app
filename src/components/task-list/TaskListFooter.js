@@ -6,7 +6,7 @@ export class TaskListFooter extends React.Component {
       return (
          <div className="footer">
             <div className="footer__counter">
-               {this.props.counter}
+               <span>{this.props.counter} to do</span>
             </div>
          </div>
       )
