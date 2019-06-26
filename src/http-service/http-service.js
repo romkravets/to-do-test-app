@@ -36,9 +36,27 @@ export class HTTPService {
     delete(url, successCallback, errorCallback) {
       const xhr = new XMLHttpRequest();
       xhr.open('DELETE', url);
-      
+
       xhr.send();
 
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if(xhr.status === 200) {
+            const parsedData = JSON.parse(xhr.response);
+            successCallback(parsedData);
+          } else {
+            errorCallback(xhr);
+          }
+        }
+      }
+    }
+
+    put(url, data, successCallback, errorCallback) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('PUT', url);
+      xhr.setRequestHeader('content-type', 'application/json');
+      xhr.send(JSON.stringify(data));
+  
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
           if(xhr.status === 200) {

@@ -68,6 +68,23 @@ export class TaskList extends React.Component {
       })
    }
 
+   updateItem =(updateTask) => {
+      this.httpService.put(`${URL}/${updateTask.id}`,updateTask,(resp) =>{
+         this.setState(oldState => {
+            const newState = Object.assign({}, oldState);
+            let updateIndex = oldState.tasks.reduce((index, item, i) => {
+               if(item.id === updateTask.id) {
+                  index = i;
+               }
+               return index;
+            }, 0);
+
+            newState.tasks[updateIndex] = resp;
+            return newState;
+         });
+      });
+   }
+
    render() {
       const listItems = this.state.tasks.map((task, i) => {
          return <ListItem 
@@ -76,6 +93,7 @@ export class TaskList extends React.Component {
          title={task.title} 
          completed={task.completed}
          onDeleteItem={this.deleteItem}
+         onChange={this.updateItem}
          />
       })
       return (
