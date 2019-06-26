@@ -12,7 +12,7 @@ export class ListItem extends React.Component {
       const task = Object.assign({}, this.props);
       task.completed = !task.completed;
       this.props.onChange(task);
-   }
+    }
 
    render() {
       return (

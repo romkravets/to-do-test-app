@@ -1,9 +1,14 @@
 import * as React from 'react';
 
 import { HTTPService } from '../../http-service/http-service';
+
+import { List } from './List';
 import { ListItem } from './ListItem';
+// import {TaskListHeader} from './TaskListHeader';
+import { TaskListFooter } from './TaskListFooter';
 
 import './TaskList.scss';
+
 
 const URL = 'https://evening-dawn-11092.herokuapp.com/list';
 
@@ -13,7 +18,7 @@ export class TaskList extends React.Component {
       this.httpService = new HTTPService();
       this.state = {
          tasks: [],
-         newTaskTitle: '',
+         newTaskTitle: ''
       }
    }
 
@@ -47,16 +52,15 @@ export class TaskList extends React.Component {
          })
       })
    }
-
-   valueChange = (e) => {
+  
+    valueChange = (e) => {
       const value = e.target.value;
       this.setState((oldState) => {
-         const newState = Object.assign({}, oldState);
-         newState.newTaskTitle = value;
-         console.log(newState);
-         return newState;
-      })
-   }
+        const newState = Object.assign({}, oldState);
+        newState.newTaskTitle = value;
+        return newState;
+      });
+    }
 
    deleteItem = (id) => {
       this.httpService.delete(`${URL}/${id}`, (resp) => {
@@ -95,44 +99,24 @@ export class TaskList extends React.Component {
          onDeleteItem={this.deleteItem}
          onChange={this.updateItem}
          />
-      })
+      });
+
+      const ItemCounter = this.state.tasks.filter(task => !task.completed).length;
       return (
          <div className="task-list">
             <form className="task-list__head" onSubmit={this.onSubmit}>
-            <input
-            type="text"
-            className="task-list__input"
-            placeholder="To do"
-            onChange={this.valueChange}
-            value={this.state.newTaskTitle}
-            />
-            <button className="task-list__btn">Add</button>
+               <input
+               type="text"
+               className="task-list__input"
+               placeholder="To do"
+               onChange={this.valueChange}
+               value={this.state.newTaskTitle}/>
+               <button className="task-list__btn">Add</button>
          </form>
          <div className="list">
-            <ul className="task-list__content">
-               {listItems}
-                  {/* <span className="list-item__checkbox">
-                  <input className="list-item__native-input"
-                        type="checkbox"
-                        id=""/>
-                  <label className="list-item__label"></label>
-                  </span>
-                  <span className="list-item__title">
-                  </span>
-                  <input className="list-item__input"
-                  value=''/>
-                  <button className="list-item__del">X</button> */}
-            </ul>
+            <List>{listItems}</List>
          </div>
-         <div className="footer">
-            <div className="footer__counter">
-               1
-            </div>
-            <div className="footer__filters">
-               2
-            </div>
-            <div className="footer__control"></div>
-         </div>
+         <TaskListFooter counter={ItemCounter}/>
          </div>
       )
    }
