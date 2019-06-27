@@ -17,7 +17,7 @@ h2,
 h3,
 h4,
 h5,
-p, figure {
+p, figure, a {
   margin: 0;
   padding: 0;
 }
@@ -41,6 +41,13 @@ input:focus {
   outline: none;
 }
 
+input{
+  color: rgb(255, 255, 255);
+}
+
+input::placeholder {
+  color: #ffffff;
+}
 
 .page-login {
   background-image: url(./todo-list.jpg);
@@ -57,43 +64,66 @@ input:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #ecf0f1;
+  color: #f0f3f5;
   justify-content: center;
-  background-color: #3F3F47;
   &__caption {
-    font-size: 3rem;
+    font-size: 4rem;
   }
-  &__btn {
-      position: relative;
-      display: block;
-      margin: 30px auto;
-      padding: 15px 25px;
-      overflow: hidden;
-      border-width: 0;
-      outline: none;
-      cursor: pointer;
-      border-radius: 2px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
-      background-color: #0E181A;
-      color: #ecf0f1;
-      transition: background-color .3s;
-      &:hover, &:focus {
-        background-color: #27ae60;
-      }
-    }
+}
+
+.btn {
+  position: relative;
+  display: block;
+  margin: 30px auto;
+  padding: 15px 25px;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  background-color: #0E181A;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  &:hover, &:focus {
+    background-color: #27ae60;
+  }
 }
 
 .logout-container {
   background-color: #0E181A;
   opacity: 0.9;
   color: #ecf0f1;
+  display: flex;
+  flex-direction: row;
   &__caption {
     color: #ecf0f1;
-    text-align: center;
-    display: inline-block;
+    display: flex;
+    justify-content: flex-end;
     position: fixed;
+    width: 100%;
     margin: auto;
     top: 0;
-
+    left: 0;
   }
+  &__box {
+    display: flex;
+    align-items: center;
+  }
+  &__btn {
+    display: flex;
+    padding: 5px 10px;
+    margin: 0 0 0 1rem;
+  }
+}
+
+.loader {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  background-color: #0E181A;
+  color: #ecf0f1;
 }

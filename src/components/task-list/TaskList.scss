@@ -1,6 +1,6 @@
 
 .task-list {
-   max-width: 500px;
+   max-width: 700px;
    margin: 0 auto;
    padding: 1rem 0.5rem;
    box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
@@ -17,5 +17,8 @@
      font-size: 12px;
      padding: 0.3rem;
      cursor: pointer;
+     &:hover, &:focus {
+      background-color: #27ae60;
+    }
    }
  }
