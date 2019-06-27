@@ -10,7 +10,7 @@ class App extends React.Component {
     let mainComponent = "";
   switch(this.props.location) {
     case "":
-      mainComponent = <Main basename={process.env.PUBLIC_URL} {...this.props}/>;
+      mainComponent = <Main {...this.props}/>;
       break;
     case "callback":
       mainComponent = <Callback/>;
