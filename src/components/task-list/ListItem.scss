@@ -1,50 +1,36 @@
 .list-item {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   &:nth-child(2n) {
-     background-color: rgb(31, 28, 28);
-   }
-   * > {
-     flex-grow: 1;
-     flex-shrink: 1;
-   }
-   &__checkbox {
-     display: block;
-     flex-basis: 10px;
-   }
-   &__native-input {
-      
-   }
-   &__label {
-     border: 1px solid rgb(179, 179, 179);
-     display: block;
-     border-radius: 2px;
-     width: 10px;
-     height: 10px;
-   }
-   &__title {
-     width: calc(100% - 30px);
-     padding: 8px;
-   }
-   &__del {
-     display: block;
-     font-size: 1rem;
-     border: none;
-     background-color: transparent;
-     width: 20px;
-     color: #ffffff;
-     cursor: pointer;
-   }
- }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  * > {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+  }
+  &__title {
+    width: calc(100% - 30px);
+    padding: 8px;
+  }
+  &__del {
+    display: block;
+    font-size: 1rem;
+    border: none;
+    background-color: transparent;
+    width: 20px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+}
 
- input .list-item__native-input {
-  background-color: #646363;
-  cursor: pointer;
- }
-
-input.task-list__input {
-  background-color: #646363;
-  border: none;
-  padding: 0.3rem;
+input .list-item__native-input {
+ background-color: rgb(100, 99, 99);
+ cursor: pointer;
 }

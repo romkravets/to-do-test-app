@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 14px;
 }
 
 body {
-  max-width: 100%;
+  max-width: 2300px;
   margin: auto;
 }
 
@@ -31,6 +34,7 @@ ul {
 a {
   text-decoration: none;
   display: inline-block;
+  color: rgb(12, 189, 224);
 }
 
 button:focus {
@@ -45,8 +49,20 @@ input{
   color: rgb(255, 255, 255);
 }
 
+input::-webkit-input-placeholder {
+  color: rgb(255, 255, 255);
+}
+
+input:-ms-input-placeholder {
+  color: rgb(255, 255, 255);
+}
+
+input::-ms-input-placeholder {
+  color: rgb(255, 255, 255);
+}
+
 input::placeholder {
-  color: #ffffff;
+  color: rgb(255, 255, 255);
 }
 
 .page-login {
@@ -54,36 +70,65 @@ input::placeholder {
   min-height: 100vh;
   background-position: center;
   background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .login-container {
-  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #f0f3f5;
-  justify-content: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   &__caption {
-    font-size: 4rem;
+    font-size: 3rem;
   }
+}
+
+.btn-container {
+  text-align: center;
+  font-size: 2rem;
 }
 
 .btn {
   position: relative;
   display: block;
-  margin: 30px auto;
-  padding: 15px 25px;
+  margin: 1rem auto;
+  padding: 25px 60px;
   overflow: hidden;
   border-width: 0;
+  font-size: 1.4rem;
+  text-transform: uppercase;
   outline: none;
   cursor: pointer;
   border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
   background-color: #0E181A;
-  color: #ecf0f1;
+  color: rgb(255, 255, 255);
+  -webkit-transition: background-color .3s;
+  -o-transition: background-color .3s;
   transition: background-color .3s;
   &:hover, &:focus {
     background-color: #27ae60;
@@ -91,39 +136,48 @@ input::placeholder {
 }
 
 .logout-container {
-  background-color: #0E181A;
-  opacity: 0.9;
-  color: #ecf0f1;
+  color: rgb(255, 255, 255);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  &__caption {
-    color: #ecf0f1;
-    display: flex;
-    justify-content: flex-end;
-    position: fixed;
-    width: 100%;
-    margin: auto;
-    top: 0;
-    left: 0;
-  }
-  &__box {
-    display: flex;
-    align-items: center;
-  }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 2rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   &__btn {
-    display: flex;
-    padding: 5px 10px;
-    margin: 0 0 0 1rem;
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+  &__usere {
+    font-size: 2rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
   }
 }
 
-.loader {
+.text-center-block {
   text-align: center;
   min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #0E181A;
-  color: #ecf0f1;
+  color: rgb(255, 255, 255);
 }

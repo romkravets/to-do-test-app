@@ -23,7 +23,7 @@ export class ListItem extends React.Component {
             <span className="list-item__title">
                {this.props.title}
             </span>
-            <button className="list-item__del" onClick={this.deleteItem}>⌦</button>
+            <button className="list-item__del" onClick={this.deleteItem}>⮿</button>
          </li>
       )
    }

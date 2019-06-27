@@ -107,7 +107,6 @@ export class TaskList extends React.Component {
          <div className="list">
             <List>{listItems}</List>
          </div>
-        
          <form className="task-list__head" onSubmit={this.onSubmit}>
                <input
                type="text"

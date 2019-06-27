@@ -8,7 +8,7 @@ export class Callback extends React.Component {
    }
    render() {
       return (
-         <div>Loading...</div>
+         <div className="text-center-block">Loading...</div>
       )
    }
 }

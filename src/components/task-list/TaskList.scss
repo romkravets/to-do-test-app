@@ -1,24 +1,29 @@
-
 .task-list {
-   max-width: 700px;
-   margin: 0 auto;
-   padding: 1rem 0.5rem;
-   box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
-   &__counter {
-     font-size: 1.1rem;
-     font-weight: 500;
-     text-transform: uppercase;
-   }
-   &__btn {
-     color: #ffffff;
-     background-color: black;
-     border: none;
-     border: 1px solid transparent;
-     font-size: 12px;
-     padding: 0.3rem;
-     cursor: pointer;
-     &:hover, &:focus {
-      background-color: #27ae60;
-    }
-   }
- }
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  color: rgb(255, 255, 255);
+  -webkit-box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+  background-color: rgb(14, 24, 26);
+  &__counter {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  &__btn {
+    color: rgb(255, 255, 255);
+    background-color: hsl(0, 0%, 0%);
+    border: none;
+    border: 2px solid transparent;
+    font-size: 12px;
+    padding: 3px;
+    cursor: pointer;
+  }
+}
+
+input.task-list__input {
+ background-color: rgb(100, 99, 99);
+ border: none;
+ padding: 4px;
+}
