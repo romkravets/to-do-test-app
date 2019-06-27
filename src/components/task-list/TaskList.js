@@ -4,8 +4,7 @@ import { HTTPService } from '../../http-service/http-service';
 
 import { List } from './List';
 import { ListItem } from './ListItem';
-// import {TaskListHeader} from './TaskListHeader';
-import { TaskListFooter } from './TaskListFooter';
+import { TaskListCounter } from './TaskListCounter';
 
 import './TaskList.scss';
 
@@ -104,7 +103,12 @@ export class TaskList extends React.Component {
       const ItemCounter = this.state.tasks.filter(task => !task.completed).length;
       return (
          <div className="task-list">
-            <form className="task-list__head" onSubmit={this.onSubmit}>
+         <TaskListCounter counter={ItemCounter}/>
+         <div className="list">
+            <List>{listItems}</List>
+         </div>
+        
+         <form className="task-list__head" onSubmit={this.onSubmit}>
                <input
                type="text"
                className="task-list__input"
@@ -113,10 +117,6 @@ export class TaskList extends React.Component {
                value={this.state.newTaskTitle}/>
                <button className="task-list__btn">Add</button>
          </form>
-         <div className="list">
-            <List>{listItems}</List>
-         </div>
-         <TaskListFooter counter={ItemCounter}/>
          </div>
       )
    }

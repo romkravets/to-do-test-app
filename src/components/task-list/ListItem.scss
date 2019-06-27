@@ -3,7 +3,7 @@
    justify-content: space-between;
    align-items: center;
    &:nth-child(2n) {
-     background-color: rgb(245, 245, 245);
+     background-color: rgb(31, 28, 28);
    }
    * > {
      flex-grow: 1;
@@ -14,12 +14,7 @@
      flex-basis: 10px;
    }
    &__native-input {
-     display: none;
-     &:checked {
-       &+label {
-         background-color: rgb(172, 236, 226);
-       }
-     }
+      
    }
    &__label {
      border: 1px solid rgb(179, 179, 179);
@@ -38,16 +33,18 @@
      border: none;
      background-color: transparent;
      width: 20px;
-   }
-   &__input {
-     display: none;
-   }
-   &_edit {
-     .list-item__title {
-       display: none;
-     }
-     .list-item__input {
-       display: block;
-     }
+     color: #ffffff;
+     cursor: pointer;
    }
  }
+
+ input .list-item__native-input {
+  background-color: #646363;
+  cursor: pointer;
+ }
+
+input.task-list__input {
+  background-color: #646363;
+  border: none;
+  padding: 0.3rem;
+}

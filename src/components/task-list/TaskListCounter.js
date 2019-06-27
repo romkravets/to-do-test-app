@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-export class TaskListFooter extends React.Component {
+export class TaskListCounter extends React.Component {
 
    render() {
       return (
-         <div className="footer">
-            <div className="footer__counter">
+         <div className="task-list__counter">
+            <div className="task-list__top">
                <span>{this.props.counter} to do</span>
             </div>
          </div>

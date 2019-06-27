@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+}
+
+body {
+  max-width: 100%;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p, figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:focus {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+
+.page-login {
+  background-image: url(./todo-list.jpg);
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ecf0f1;
+  justify-content: center;
+  background-color: #3F3F47;
+  &__caption {
+    font-size: 3rem;
+  }
+  &__btn {
+      position: relative;
+      display: block;
+      margin: 30px auto;
+      padding: 15px 25px;
+      overflow: hidden;
+      border-width: 0;
+      outline: none;
+      cursor: pointer;
+      border-radius: 2px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+      background-color: #0E181A;
+      color: #ecf0f1;
+      transition: background-color .3s;
+      &:hover, &:focus {
+        background-color: #27ae60;
+      }
+    }
+}
+
+.logout-container {
+  background-color: #0E181A;
+  opacity: 0.9;
+  color: #ecf0f1;
+  &__caption {
+    color: #ecf0f1;
+    text-align: center;
+    display: inline-block;
+    position: fixed;
+    margin: auto;
+    top: 0;
+
+  }
+}

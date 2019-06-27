@@ -14,37 +14,36 @@ class Home extends Component {
  
     const { isAuthenticated } = this.props.auth;
     return (
-      <div>
+      <div className="page-login">
         {
           isAuthenticated() &&
-          <div className="container column">
-            <h5>
+          <div className="logout-container">
+          <div className="logout-container__caption">
+          <h5>
               You are logged in!{' '}
-              <a
+              <a className="login-container__btn"
                 style={{ cursor: 'pointer' }}
                 onClick={this.logout}
               >
                 Log Out
               </a>.
             </h5>
+          </div>
             <App />
           </div>
         }
         {
           !isAuthenticated() && (
-            <div className="container column">
-              <h5>ReactiveSearch Auth0 Example</h5>
+            <div className="login-container">
+              <h2 className="login-container__caption">Welcome friends</h2>
               <h5>
-                You are not logged in! Please{' '}
-                <a
-                  style={{ cursor: 'pointer' }}
-                  onClick={this.login}
-                >
-                  Log In
-                </a>
-                {' '}to continue.
+                Please Log In to continue.
               </h5>
-              <h6>This is the default <b><code>Home</code></b> component. The <b><code>App</code></b> component will only be visible once you authenticate.</h6>
+              <button className="login-container__btn"
+                  onClick={this.login}>
+                  Log In
+              </button>
+           
             </div>
           )
         }

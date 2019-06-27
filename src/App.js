@@ -1,6 +1,6 @@
 import React from 'react';
 import {TaskList} from './components/task-list/TaskList';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
